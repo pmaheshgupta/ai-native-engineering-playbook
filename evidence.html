@@ -17,7 +17,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="styles.css">
-
+<style>
+/* ev:start */
+.ev-howto{display:grid;gap:6px;padding:16px 18px;border-radius:var(--radius);background:var(--sunk);margin-bottom:28px;max-width:820px}
+.ev-howto b:first-child{font-family:var(--f-display);font-size:var(--s1)}
+.ev-howto p{font-size:.9375rem;color:var(--ink)}
+.k-blue{color:var(--accent);font-weight:600}
+.k-red{color:var(--red);font-weight:600}
+.ev-group{font-size:var(--s1);margin:8px 0 12px}
+.ev-list{list-style:none;margin:0 0 28px;padding:0;border-top:1px solid var(--rule)}
+.ev-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--rule);align-items:start}
+.ev-num{display:grid;gap:10px;padding:12px 14px;border:1px solid var(--rule);border-radius:var(--radius);background:var(--surface)}
+.ev-num b{font-family:var(--f-display);font-size:var(--s3);line-height:1;font-variant-numeric:tabular-nums}
+.ev-num.pos b{color:var(--green)}
+.ev-num.neg b{color:var(--red)}
+.ev-num.mid b{color:var(--ink)}
+.ev-scale{position:relative;height:8px;border-radius:4px;background:var(--sunk)}
+.ev-zero{position:absolute;left:25%;top:-3px;bottom:-3px;width:2px;background:var(--muted)}
+.ev-fill{position:absolute;top:0;bottom:0;border-radius:4px}
+.ev-fill.pos{background:var(--green)}
+.ev-fill.neg{background:var(--red)}
+.ev-body{display:grid;gap:6px}
+.ev-body h4{margin:0;font-family:var(--f-display);font-size:var(--s1)}
+.ev-body p{font-size:.9375rem;color:var(--muted);max-width:68ch}
+.ev-body .ev-take{color:var(--ink)}
+.ev-take span{font-weight:600}
+.ev-src{font-size:var(--s-1)}
+@media (max-width:640px){.ev-row{grid-template-columns:1fr;gap:10px}.ev-num{max-width:220px}}
+/* ev:end */
+</style>
 </head>
 <body>
 <nav class="topnav" aria-label="Pages">
@@ -30,29 +58,57 @@
 <section id="evidence">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">The data</div>
-      <h2>Why "20–30% productivity" is a trap</h2>
-      <p class="lede">Published results range from 56% faster to 19% slower. The spread is the finding: the gain you realize depends on the work you point AI at.</p>
+      <div class="eyebrow">The evidence</div>
+      <h2>AI speeds up some work a lot, and slows other work down</h2>
+      <p class="lede">Teams often plan around one headline number, such as "20–30% more productive". The research doesn't support a single number. In controlled studies, AI made developers 56% faster on a small, new task and 19% slower on complex changes to code they already knew. Where you land depends on the kind of work you do. Most fintech production work is the second kind, so a realistic plan assumes modest gains until you have measured your own.</p>
     </div>
-    <div class="studies">
-      <article class="study"><div class="big">+56%</div><b>Greenfield, bounded task</b><p class="ctx">GitHub RCT · build an HTTP server · 1h11 vs 2h41, CI 21–89%</p><p>AI is huge on new, self-contained code.</p><a class="src" href="https://arxiv.org/abs/2302.06590" target="_blank" rel="noopener">Peng et al., 2023 ↗</a></article>
-      <article class="study"><div class="big">+42%</div><b>Six-week field rollout</b><p class="ctx">ANZ Bank · beginners +52%, seniors +40%</p><p>Real gains, but they skew toward junior work.</p><a class="src" href="https://arxiv.org/abs/2402.05636" target="_blank" rel="noopener">ANZ Bank study, 2024 ↗</a></article>
-      <article class="study"><div class="big neg">−19%</div><b>Complex changes in mature repos</b><p class="ctx">METR RCT · developers predicted +24% and felt +20%</p><p>On hard domain work in familiar code, AI can cost time.</p><a class="src" href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">Becker et al., METR, 2025 ↗</a></article>
-      <article class="study"><div class="big">33%</div><b>Suggestion acceptance, 400+ devs</b><p class="ctx">ZoomInfo · struggled on domain logic</p><p>The differentiating work benefits least.</p><a class="src" href="https://arxiv.org/abs/2501.13282" target="_blank" rel="noopener">ZoomInfo, 2025 ↗</a></article>
-      <article class="study"><div class="big">84% · 46%</div><b>Use, and distrust</b><p class="ctx">Stack Overflow 2025 · 84% use or plan to use AI, 46% distrust its accuracy, positive sentiment down from 70%+ to 60%</p><p>Adoption is running ahead of evidence.</p><a class="src" href="https://survey.stackoverflow.co/2025/ai" target="_blank" rel="noopener">Developer Survey 2025 ↗</a></article>
+    <div class="ev-howto">
+      <b>How to read these numbers</b>
+      <p>In the first group, each percentage compares how long the same kind of task took with and without AI. <b>+56%</b> means it got done 56% faster; <b>−19%</b> means it took 19% longer. The small bar shows where each result sits between 20% slower and 60% faster, with the line marking no change. The second group measures adoption and trust, not speed.</p>
     </div>
+    <h3 class="ev-group">Speed: the same work, with and without AI</h3>
+    <ul class="ev-list">
+        <li class="ev-row">
+          <div class="ev-num pos"><b>+56%</b><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill pos" style="left:25.00%;width:70.00%"></span></div></div>
+          <div class="ev-body"><h4>Small, new, self-contained task</h4><p>GitHub's controlled trial: developers built an HTTP server in 1 hour 11 minutes with Copilot, against 2 hours 41 minutes without it.</p><p class="ev-take"><span>What it tells you:</span> AI is strongest on greenfield work with clear boundaries.</p><a class="ev-src" href="https://arxiv.org/abs/2302.06590" target="_blank" rel="noopener">Peng et al., 2023 ↗</a></div>
+        </li>
+        <li class="ev-row">
+          <div class="ev-num pos"><b>+42%</b><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill pos" style="left:25.00%;width:52.50%"></span></div></div>
+          <div class="ev-body"><h4>Six-week rollout on real work at a bank</h4><p>ANZ Bank compared engineers with and without Copilot on their day-to-day tasks. Beginners gained 52%, senior engineers 40%.</p><p class="ev-take"><span>What it tells you:</span> The gains are real in production, and larger for less experienced engineers.</p><a class="ev-src" href="https://arxiv.org/abs/2402.05636" target="_blank" rel="noopener">ANZ Bank study, 2024 ↗</a></div>
+        </li>
+        <li class="ev-row">
+          <div class="ev-num neg"><b>−19%</b><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill neg" style="left:1.25%;width:23.75%"></span></div></div>
+          <div class="ev-body"><h4>Complex changes in a mature codebase the developers knew well</h4><p>METR's controlled trial with experienced open-source maintainers. They expected AI to make them 24% faster and afterwards felt 20% faster, but the tasks took 19% longer.</p><p class="ev-take"><span>What it tells you:</span> On hard domain work, AI can cost time, and people cannot tell from the inside.</p><a class="ev-src" href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">Becker et al., METR, 2025 ↗</a></div>
+        </li>
+    </ul>
+    <h3 class="ev-group">Adoption and trust</h3>
+    <ul class="ev-list">
+        <li class="ev-row">
+          <div class="ev-num mid"><b>33%</b></div>
+          <div class="ev-body"><h4>AI suggestions kept by developers</h4><p>Across more than 400 developers at ZoomInfo, engineers accepted about one in three AI suggestions. It struggled most with domain-specific logic.</p><p class="ev-take"><span>What it tells you:</span> The work that makes your product different benefits least.</p><a class="ev-src" href="https://arxiv.org/abs/2501.13282" target="_blank" rel="noopener">ZoomInfo, 2025 ↗</a></div>
+        </li>
+        <li class="ev-row">
+          <div class="ev-num mid"><b>84% · 46%</b></div>
+          <div class="ev-body"><h4>Developers using AI, and developers distrusting it</h4><p>Stack Overflow's 2025 survey: 84% use or plan to use AI tools, 46% distrust the accuracy of the output, and positive sentiment fell from over 70% to 60%.</p><p class="ev-take"><span>What it tells you:</span> Adoption is running ahead of evidence, so usage alone proves nothing.</p><a class="ev-src" href="https://survey.stackoverflow.co/2025/ai" target="_blank" rel="noopener">Stack Overflow Developer Survey 2025 ↗</a></div>
+        </li>
+    </ul>
+    <h3 class="ev-group">What to do with this</h3>
     <div class="insights">
-      <div class="insight"><b>Your realized gain equals your task mix.</b><p>More boilerplate, tests and greenfield moves you toward +56%. More complex logic in mature code, which is most fintech production work, moves you toward zero or below.</p><p class="act">Action: measure your task mix before believing any headline number.</p></div>
-      <div class="insight"><b>Engineers cannot self-report productivity.</b><p>METR's developers were 19% slower while feeling 20% faster.</p><p class="act">Action: never justify AI spend on surveys. Instrument cycle time, escape rate and review load.</p></div>
+      <div class="insight"><b>Your gain depends on your mix of work.</b><p>More boilerplate, tests and new code moves you toward +56%. More complex logic in mature code, which is most fintech production work, moves you toward zero or below.</p><p class="act">Before believing any headline number, look at what kind of work your team actually does.</p></div>
+      <div class="insight"><b>Engineers can't judge their own speed-up.</b><p>METR's developers were 19% slower while feeling 20% faster.</p><p class="act">Don't justify AI spend with surveys. Measure cycle time, escaped defects and review load.</p></div>
     </div>
   </div>
 </section>
 <section id="economics">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Cost, effort and break-even</div>
-      <h2>Does climbing pay off? It depends on team size</h2>
-      <p class="lede">About 60% of the L2 build is fixed: the platform, gates and measurement cost the same for 5 engineers or 50. The same build returns ~4 FTE-equivalents a year across 40 engineers and ~0.5 across 5.</p>
+      <div class="eyebrow">Does it pay off?</div>
+      <h2>Building the Level 2 platform pays back only above about 15 engineers</h2>
+      <p class="lede">Moving from AI-Assisted to AI-Augmented means building shared machinery: AI review on every pull request, shared context files, policy gates and metrics. That build costs roughly the same for 5 engineers as for 50, while the benefit grows with every engineer who uses it. So below a certain team size it never pays for itself. With a cautious 10% gain, that point is about 15 engineers.</p>
+    </div>
+    <div class="ev-howto">
+      <b>How to use the calculator</b>
+      <p>Set <b>Engineers</b> to your team size and <b>Net capacity uplift</b> to the gain you expect once the platform is running; 10% is a cautious planning figure. The <span class="k-blue">blue line</span> is the engineering capacity the platform gives back each year, counted in full-time engineers (FTE). The <span class="k-red">red dashed line</span> is what it costs to run each year. Where they cross is the break-even team size. Above it, the green area is net gain; below it, the red area is a loss. The dot is your team.</p>
     </div>
     <div class="econ">
       <div class="calc">
@@ -69,6 +125,7 @@
         </div>
         <div class="chart"><svg id="beChart" viewBox="0 0 640 280" role="img" aria-label="Capacity returned per year against team size, compared with the running cost of the L2 build"></svg></div>
       </div>
+      <div><h3 style="margin-bottom:6px">What each step up costs</h3><p class="note" style="margin:0 0 12px">PW = person-weeks and py = person-years of engineering effort. The fixed share is the part that doesn't get smaller for a small team, which is why break-even depends on size.</p></div>
       <div class="tscroll">
         <table style="min-width:820px">
           <thead><tr><th>Transition</th><th>One-time effort</th><th>Fixed share</th><th>Ongoing</th><th>Pays back when</th><th>Break-even team</th><th>Dominant cost</th></tr></thead>
