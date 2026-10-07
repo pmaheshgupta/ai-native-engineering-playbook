@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Does AI Make Developers Faster? Evidence and Break-Even</title>
-<meta name="description" content="What GitHub, METR, ANZ Bank, ZoomInfo and Stack Overflow studies say about AI coding productivity, plus a break-even calculator for building an AI-augmented engineering platform.">
+<title>Does AI Make Developers Faster? 2026 Evidence and Break-Even</title>
+<meta name="description" content="What 2026 research from Stack Overflow, DORA, METR and Stanford says about AI coding productivity, plus a break-even calculator for building an AI-augmented engineering platform.">
 <meta name="author" content="Mahesh Gupta">
 <link rel="canonical" href="https://pmaheshgupta.github.io/ai-native-engineering-playbook/evidence.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI-Native Engineering Playbook">
-<meta property="og:title" content="Does AI Make Developers Faster? Evidence and Break-Even">
-<meta property="og:description" content="What GitHub, METR, ANZ Bank, ZoomInfo and Stack Overflow studies say about AI coding productivity, plus a break-even calculator for building an AI-augmented engineering platform.">
+<meta property="og:title" content="Does AI Make Developers Faster? 2026 Evidence and Break-Even">
+<meta property="og:description" content="What 2026 research from Stack Overflow, DORA, METR and Stanford says about AI coding productivity, plus a break-even calculator for building an AI-augmented engineering platform.">
 <meta property="og:url" content="https://pmaheshgupta.github.io/ai-native-engineering-playbook/evidence.html">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +32,7 @@
 .ev-num.pos b{color:var(--green)}
 .ev-num.neg b{color:var(--red)}
 .ev-num.mid b{color:var(--ink)}
+.ev-num.low b{color:var(--amber)}
 .ev-scale{position:relative;height:8px;border-radius:4px;background:var(--sunk)}
 .ev-zero{position:absolute;left:25%;top:-3px;bottom:-3px;width:2px;background:var(--muted)}
 .ev-fill{position:absolute;top:0;bottom:0;border-radius:4px}
@@ -43,6 +44,8 @@
 .ev-body .ev-take{color:var(--ink)}
 .ev-take span{font-weight:600}
 .ev-src{font-size:var(--s-1)}
+.ev-num small{font-family:var(--f-mono);font-size:11px;color:var(--muted);line-height:1.35;margin-top:-4px}
+.ev-srcs{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:var(--s-1);color:var(--muted)}
 @media (max-width:640px){.ev-row{grid-template-columns:1fr;gap:10px}.ev-num{max-width:220px}}
 /* ev:end */
 </style>
@@ -58,44 +61,55 @@
 <section id="evidence">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">The evidence</div>
-      <h2>AI speeds up some work a lot, and slows other work down</h2>
-      <p class="lede">Teams often plan around one headline number, such as "20–30% more productive". The research doesn't support a single number. In controlled studies, AI made developers 56% faster on a small, new task and 19% slower on complex changes to code they already knew. Where you land depends on the kind of work you do. Most fintech production work is the second kind, so a realistic plan assumes modest gains until you have measured your own.</p>
+      <div class="eyebrow">The evidence · updated October 2026</div>
+      <h2>AI pays off on some work, barely on other work, and only with the right system around it</h2>
+      <p class="lede">By 2026 almost every engineering team uses AI, so the question has moved from "should we?" to "is it paying off?". The latest research answers clearly: it depends on the work and on the system around the tools. Measured gains average 15–20%. They reach 30–40% on simple new code and fall to 0–10% on complex work in large existing codebases. Teams that use more AI ship more, but they also break more. Most fintech production work is the complex, existing-code kind, so a realistic plan assumes modest gains, budgets for an early dip, and strengthens testing and review before scaling up.</p>
     </div>
     <div class="ev-howto">
       <b>How to read these numbers</b>
-      <p>In the first group, each percentage compares how long the same kind of task took with and without AI. <b>+56%</b> means it got done 56% faster; <b>−19%</b> means it took 19% longer. The small bar shows where each result sits between 20% slower and 60% faster, with the line marking no change. The second group measures adoption and trust, not speed.</p>
+      <p>Each line is one finding. The number on the left is the headline result, and the small label under it says what was measured, because these studies measure different things: delivered output, task time, self-reports and survey answers. In the speed group, the bar shows where each result sits between 20% slower and 60% faster, with the line marking no change.</p>
     </div>
-    <h3 class="ev-group">Speed: the same work, with and without AI</h3>
+    <h3 class="ev-group">Adoption: AI is now how teams work</h3>
     <ul class="ev-list">
         <li class="ev-row">
-          <div class="ev-num pos"><b>+56%</b><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill pos" style="left:25.00%;width:70.00%"></span></div></div>
-          <div class="ev-body"><h4>Small, new, self-contained task</h4><p>GitHub's controlled trial: developers built an HTTP server in 1 hour 11 minutes with Copilot, against 2 hours 41 minutes without it.</p><p class="ev-take"><span>What it tells you:</span> AI is strongest on greenfield work with clear boundaries.</p><a class="ev-src" href="https://arxiv.org/abs/2302.06590" target="_blank" rel="noopener">Peng et al., 2023 ↗</a></div>
+          <div class="ev-num mid"><b>73%</b><small>of AI-tool users use them daily</small></div>
+          <div class="ev-body"><h4>AI is now the default way of working</h4><p>Stack Overflow's 2026 survey of more than 30,000 developers: 73% of those using AI coding tools use them every day, and 31% of daily users spend four or more hours a day with them. Two in three now work inside coding agents. Trust is conditional: 48% trust AI only when they can easily check its answer.</p><p class="ev-take"><span>What it tells you:</span> Whether teams use AI is no longer the question. Whether they can verify its output is.</p><div class="ev-srcs"><a class="ev-src" href="https://stackoverflow.blog/2026/10/06/the-results-of-the-2026-developer-survey-are-here" target="_blank" rel="noopener">Stack Overflow, Oct 2026 ↗</a></div></div>
         </li>
         <li class="ev-row">
-          <div class="ev-num pos"><b>+42%</b><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill pos" style="left:25.00%;width:52.50%"></span></div></div>
-          <div class="ev-body"><h4>Six-week rollout on real work at a bank</h4><p>ANZ Bank compared engineers with and without Copilot on their day-to-day tasks. Beginners gained 52%, senior engineers 40%.</p><p class="ev-take"><span>What it tells you:</span> The gains are real in production, and larger for less experienced engineers.</p><a class="ev-src" href="https://arxiv.org/abs/2402.05636" target="_blank" rel="noopener">ANZ Bank study, 2024 ↗</a></div>
-        </li>
-        <li class="ev-row">
-          <div class="ev-num neg"><b>−19%</b><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill neg" style="left:1.25%;width:23.75%"></span></div></div>
-          <div class="ev-body"><h4>Complex changes in a mature codebase the developers knew well</h4><p>METR's controlled trial with experienced open-source maintainers. They expected AI to make them 24% faster and afterwards felt 20% faster, but the tasks took 19% longer.</p><p class="ev-take"><span>What it tells you:</span> On hard domain work, AI can cost time, and people cannot tell from the inside.</p><a class="ev-src" href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">Becker et al., METR, 2025 ↗</a></div>
+          <div class="ev-num mid"><b>90%</b><small>use AI at work</small></div>
+          <div class="ev-body"><h4>More AI means more throughput, and more instability</h4><p>DORA's March 2026 research: 90% of technology professionals use AI at work and over 80% believe it has made them more productive. Teams that use more AI ship more, but their delivery is also less stable, and 30% of developers have little or no confidence in AI-generated code.</p><p class="ev-take"><span>What it tells you:</span> AI amplifies what is already there. Strong engineering foundations turn it into gains; weak ones turn it into failures.</p><div class="ev-srcs"><a class="ev-src" href="https://dora.dev/insights/balancing-ai-tensions/" target="_blank" rel="noopener">DORA, Mar 2026 ↗</a></div></div>
         </li>
     </ul>
-    <h3 class="ev-group">Adoption and trust</h3>
+    <h3 class="ev-group">Speed: it depends on the work</h3>
     <ul class="ev-list">
         <li class="ev-row">
-          <div class="ev-num mid"><b>33%</b></div>
-          <div class="ev-body"><h4>AI suggestions kept by developers</h4><p>Across more than 400 developers at ZoomInfo, engineers accepted about one in three AI suggestions. It struggled most with domain-specific logic.</p><p class="ev-take"><span>What it tells you:</span> The work that makes your product different benefits least.</p><a class="ev-src" href="https://arxiv.org/abs/2501.13282" target="_blank" rel="noopener">ZoomInfo, 2025 ↗</a></div>
+          <div class="ev-num pos"><b>+30–40%</b><small>net gain · simple, new code</small><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill pos" style="left:25.00%;width:43.75%"></span></div></div>
+          <div class="ev-body"><h4>Simple tasks in new codebases</h4><p>Stanford's study of about 100,000 developers at more than 600 companies measured delivered functionality, not commits or lines of code, and subtracted the rework AI caused. Simple work on new code gained 30–40%.</p><p class="ev-take"><span>What it tells you:</span> AI is strongest on greenfield work with clear boundaries.</p><div class="ev-srcs"><a class="ev-src" href="https://www.ai.engineer/talks/tbDDYKRFjhk-ai-developer-productivity" target="_blank" rel="noopener">Stanford, Denisov-Blanch ↗</a></div></div>
         </li>
         <li class="ev-row">
-          <div class="ev-num mid"><b>84% · 46%</b></div>
-          <div class="ev-body"><h4>Developers using AI, and developers distrusting it</h4><p>Stack Overflow's 2025 survey: 84% use or plan to use AI tools, 46% distrust the accuracy of the output, and positive sentiment fell from over 70% to 60%.</p><p class="ev-take"><span>What it tells you:</span> Adoption is running ahead of evidence, so usage alone proves nothing.</p><a class="ev-src" href="https://survey.stackoverflow.co/2025/ai" target="_blank" rel="noopener">Stack Overflow Developer Survey 2025 ↗</a></div>
+          <div class="ev-num low"><b>0–10%</b><small>net gain · complex, existing code</small><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill pos" style="left:25.00%;width:6.25%"></span></div></div>
+          <div class="ev-body"><h4>Complex tasks in large, existing codebases</h4><p>In the same study, complex work in mature codebases gained only 0–10%, and gains shrank as codebases grew. Averaged across all work, the net gain was 15–20%. DORA's 2026 report cites the same pattern.</p><p class="ev-take"><span>What it tells you:</span> Most fintech production work looks like this. Plan for the low end until you have measured your own.</p><div class="ev-srcs"><a class="ev-src" href="https://www.ai.engineer/talks/tbDDYKRFjhk-ai-developer-productivity" target="_blank" rel="noopener">Stanford, Denisov-Blanch ↗</a> · <a class="ev-src" href="https://www.infoq.com/news/2026/05/dora-roi-ai-assisted-dev-report/" target="_blank" rel="noopener">InfoQ summary ↗</a></div></div>
+        </li>
+        <li class="ev-row">
+          <div class="ev-num neg"><b>19% slower</b><small>early 2025 → faster by 2026</small><div class="ev-scale" aria-hidden="true"><span class="ev-zero"></span><span class="ev-fill neg" style="left:1.25%;width:23.75%"></span></div></div>
+          <div class="ev-body"><h4>Experienced developers on their own projects</h4><p>METR's 2025 trial found experienced open-source developers took 19% longer with AI. Its February 2026 follow-up suggests they are now faster, but METR calls that weak evidence: so many developers now refuse to work without AI that a fair comparison is hard to run.</p><p class="ev-take"><span>What it tells you:</span> The tools improved fast, and controlled trials can't keep up. You need your own before-and-after numbers.</p><div class="ev-srcs"><a class="ev-src" href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">METR, 2025 trial ↗</a> · <a class="ev-src" href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank" rel="noopener">METR, Feb 2026 ↗</a></div></div>
+        </li>
+    </ul>
+    <h3 class="ev-group">Perception and payback</h3>
+    <ul class="ev-list">
+        <li class="ev-row">
+          <div class="ev-num mid"><b>3×</b><small>self-reported speed-up</small></div>
+          <div class="ev-body"><h4>What people say AI does for them</h4><p>METR's 2026 survey of 349 technical workers: the median respondent said AI makes them 3× faster and their work 1.4–2× more valuable. METR cautions that self-reports run well ahead of measurements; in its 2025 trial, people misjudged AI's effect on their time by about 40 percentage points.</p><p class="ev-take"><span>What it tells you:</span> Self-reported 3× against a measured 15–20%: never justify AI spend on how much faster people feel.</p><div class="ev-srcs"><a class="ev-src" href="https://metr.org/blog/2026-05-11-ai-usage-survey/" target="_blank" rel="noopener">METR, May 2026 ↗</a></div></div>
+        </li>
+        <li class="ev-row">
+          <div class="ev-num neg"><b>5% → 6%</b><small>change-failure rate in DORA's example</small></div>
+          <div class="ev-body"><h4>Returns come after a dip, and from the system around the tools</h4><p>DORA's 2026 ROI report finds productivity usually dips first, while teams learn, review load grows and testing and approvals catch up. In its worked example for a 500-person organization, a rise in change-failure rate from 5% to 6% erases about $344,000 of value.</p><p class="ev-take"><span>What it tells you:</span> Budget for the dip, and fund testing, CI and code review before you scale AI use.</p><div class="ev-srcs"><a class="ev-src" href="https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development" target="_blank" rel="noopener">DORA ROI report, 2026 ↗</a> · <a class="ev-src" href="https://www.infoq.com/news/2026/05/dora-roi-ai-assisted-dev-report/" target="_blank" rel="noopener">InfoQ summary ↗</a></div></div>
         </li>
     </ul>
     <h3 class="ev-group">What to do with this</h3>
     <div class="insights">
-      <div class="insight"><b>Your gain depends on your mix of work.</b><p>More boilerplate, tests and new code moves you toward +56%. More complex logic in mature code, which is most fintech production work, moves you toward zero or below.</p><p class="act">Before believing any headline number, look at what kind of work your team actually does.</p></div>
-      <div class="insight"><b>Engineers can't judge their own speed-up.</b><p>METR's developers were 19% slower while feeling 20% faster.</p><p class="act">Don't justify AI spend with surveys. Measure cycle time, escaped defects and review load.</p></div>
+      <div class="insight"><b>Your gain depends on your mix of work.</b><p>Simple work on new code moves you toward 30–40%. Complex changes in large existing codebases, which is most fintech production work, move you toward 0–10%.</p><p class="act">Before believing any headline number, look at what kind of work your team actually does.</p></div>
+      <div class="insight"><b>Engineers can't judge their own speed-up.</b><p>People report AI makes them 3× faster; measured net gains average 15–20%.</p><p class="act">Don't justify AI spend with surveys. Measure cycle time, change-failure rate and review load before and after.</p></div>
     </div>
   </div>
 </section>
@@ -150,11 +164,13 @@
     </div>
   </div>
 </section><div class="wrap sources"><b>Sources</b><ol>
-      <li><a href="https://arxiv.org/abs/2302.06590" target="_blank" rel="noopener">Peng, Kalliamvakou, Cihon, Demirer. The Impact of AI on Developer Productivity: Evidence from GitHub Copilot (2023)</a></li>
-      <li><a href="https://arxiv.org/abs/2402.05636" target="_blank" rel="noopener">The Impact of AI Tool on Engineering at ANZ Bank (2024)</a></li>
-      <li><a href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">Becker, Rush, Barnes, Rein (METR). Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (2025)</a></li>
-      <li><a href="https://arxiv.org/abs/2501.13282" target="_blank" rel="noopener">Experience with GitHub Copilot for Developer Productivity at ZoomInfo (2025)</a></li>
-      <li><a href="https://survey.stackoverflow.co/2025/ai" target="_blank" rel="noopener">Stack Overflow Developer Survey 2025: AI</a></li>
+      <li><a href="https://stackoverflow.blog/2026/10/06/the-results-of-the-2026-developer-survey-are-here" target="_blank" rel="noopener">Stack Overflow. The results of the 2026 Developer Survey (October 2026)</a></li>
+      <li><a href="https://dora.dev/insights/balancing-ai-tensions/" target="_blank" rel="noopener">DORA. Balancing AI tensions: moving from AI adoption to effective SDLC use (March 2026)</a></li>
+      <li><a href="https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development" target="_blank" rel="noopener">DORA. ROI of AI-assisted Software Development (2026)</a>, summarized by <a href="https://www.infoq.com/news/2026/05/dora-roi-ai-assisted-dev-report/" target="_blank" rel="noopener">InfoQ (May 2026)</a></li>
+      <li><a href="https://www.ai.engineer/talks/tbDDYKRFjhk-ai-developer-productivity" target="_blank" rel="noopener">Denisov-Blanch (Stanford). Does AI actually boost developer productivity? 100k-developer study</a></li>
+      <li><a href="https://metr.org/blog/2026-02-24-uplift-update/" target="_blank" rel="noopener">METR. We are changing our developer productivity experiment design (February 2026)</a></li>
+      <li><a href="https://metr.org/blog/2026-05-11-ai-usage-survey/" target="_blank" rel="noopener">METR. Measuring the self-reported impact of early-2026 AI on technical worker productivity (May 2026)</a></li>
+      <li><a href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">Becker et al. (METR). Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (2025)</a></li>
     </ol></div>
 <div class="wrap pager"><a class="btn ghost" href="assessment.html">Next: Assess your team →</a></div>
 </main>
