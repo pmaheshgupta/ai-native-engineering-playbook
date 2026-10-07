@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Does AI Make Developers Faster? Evidence and Break-Even</title>
+<meta name="description" content="What GitHub, METR, ANZ Bank, ZoomInfo and Stack Overflow studies say about AI coding productivity, plus a break-even calculator for building an AI-augmented engineering platform.">
+<meta name="author" content="Mahesh Gupta">
+<link rel="canonical" href="https://pmaheshgupta.github.io/ai-native-engineering-playbook/evidence.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI-Native Engineering Playbook">
+<meta property="og:title" content="Does AI Make Developers Faster? Evidence and Break-Even">
+<meta property="og:description" content="What GitHub, METR, ANZ Bank, ZoomInfo and Stack Overflow studies say about AI coding productivity, plus a break-even calculator for building an AI-augmented engineering platform.">
+<meta property="og:url" content="https://pmaheshgupta.github.io/ai-native-engineering-playbook/evidence.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<nav class="topnav" aria-label="Pages">
+  <div class="wrap">
+    <a class="brand" href="./">AI-Native Playbook</a>
+    <ul><li><a class="l" href="ladder.html">Ladder</a></li><li><a class="l" href="evidence.html" aria-current="page">Evidence</a></li><li><a class="l" href="assessment.html">Assessment</a></li><li><a class="l" href="playbook.html">Playbook</a></li><li><a class="l" href="first-90-days.html">First 90 days</a></li><li><a class="l" href="about.html">About</a></li></ul>
+  </div>
+</nav>
+<main id="main">
+<section id="evidence">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">The data</div>
+      <h2>Why "20–30% productivity" is a trap</h2>
+      <p class="lede">Published results range from 56% faster to 19% slower. The spread is the finding: the gain you realize depends on the work you point AI at.</p>
+    </div>
+    <div class="studies">
+      <article class="study"><div class="big">+56%</div><b>Greenfield, bounded task</b><p class="ctx">GitHub RCT · build an HTTP server · 1h11 vs 2h41, CI 21–89%</p><p>AI is huge on new, self-contained code.</p><a class="src" href="https://arxiv.org/abs/2302.06590" target="_blank" rel="noopener">Peng et al., 2023 ↗</a></article>
+      <article class="study"><div class="big">+42%</div><b>Six-week field rollout</b><p class="ctx">ANZ Bank · beginners +52%, seniors +40%</p><p>Real gains, but they skew toward junior work.</p><a class="src" href="https://arxiv.org/abs/2402.05636" target="_blank" rel="noopener">ANZ Bank study, 2024 ↗</a></article>
+      <article class="study"><div class="big neg">−19%</div><b>Complex changes in mature repos</b><p class="ctx">METR RCT · developers predicted +24% and felt +20%</p><p>On hard domain work in familiar code, AI can cost time.</p><a class="src" href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">Becker et al., METR, 2025 ↗</a></article>
+      <article class="study"><div class="big">33%</div><b>Suggestion acceptance, 400+ devs</b><p class="ctx">ZoomInfo · struggled on domain logic</p><p>The differentiating work benefits least.</p><a class="src" href="https://arxiv.org/abs/2501.13282" target="_blank" rel="noopener">ZoomInfo, 2025 ↗</a></article>
+      <article class="study"><div class="big">84% · 46%</div><b>Use, and distrust</b><p class="ctx">Stack Overflow 2025 · 84% use or plan to use AI, 46% distrust its accuracy, positive sentiment down from 70%+ to 60%</p><p>Adoption is running ahead of evidence.</p><a class="src" href="https://survey.stackoverflow.co/2025/ai" target="_blank" rel="noopener">Developer Survey 2025 ↗</a></article>
+    </div>
+    <div class="insights">
+      <div class="insight"><b>Your realized gain equals your task mix.</b><p>More boilerplate, tests and greenfield moves you toward +56%. More complex logic in mature code, which is most fintech production work, moves you toward zero or below.</p><p class="act">Action: measure your task mix before believing any headline number.</p></div>
+      <div class="insight"><b>Engineers cannot self-report productivity.</b><p>METR's developers were 19% slower while feeling 20% faster.</p><p class="act">Action: never justify AI spend on surveys. Instrument cycle time, escape rate and review load.</p></div>
+    </div>
+  </div>
+</section>
+<section id="economics">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Cost, effort and break-even</div>
+      <h2>Does climbing pay off? It depends on team size</h2>
+      <p class="lede">About 60% of the L2 build is fixed: the platform, gates and measurement cost the same for 5 engineers or 50. The same build returns ~4 FTE-equivalents a year across 40 engineers and ~0.5 across 5.</p>
+    </div>
+    <div class="econ">
+      <div class="calc">
+        <div class="ctrl">
+          <label for="teamSize">Engineers <span class="v num" id="teamV">40</span><input type="range" id="teamSize" min="5" max="80" step="1" value="40"></label>
+          <label for="uplift">Net capacity uplift after L2 <span class="v num" id="upV">10%</span><input type="range" id="uplift" min="4" max="30" step="1" value="10"></label>
+          <div class="readout">
+            <div><span>Capacity returned / yr</span><b class="num" id="retV">4.0 FTE</b></div>
+            <div><span>Running cost / yr</span><b class="num">≈1.5 FTE</b></div>
+            <div><span>Break-even team size</span><b class="num" id="beV">15 eng</b></div>
+            <p class="verdict pos" id="verdict">Pays back: +2.5 FTE a year</p>
+          </div>
+          <p class="note" style="margin:0">Running cost = ~1 FTE/yr of upkeep plus the ~1.5 person-year build spread over 3 years. Planning estimate, not a quote.</p>
+        </div>
+        <div class="chart"><svg id="beChart" viewBox="0 0 640 280" role="img" aria-label="Capacity returned per year against team size, compared with the running cost of the L2 build"></svg></div>
+      </div>
+      <div class="tscroll">
+        <table style="min-width:820px">
+          <thead><tr><th>Transition</th><th>One-time effort</th><th>Fixed share</th><th>Ongoing</th><th>Pays back when</th><th>Break-even team</th><th>Dominant cost</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">0 → 1</th><td class="num">&lt;10 PW + licences (~$20–40/user/mo)</td><td class="num">~2 PW</td><td>Licences</td><td>Almost always</td><td>Any</td><td>Policy and access</td></tr>
+            <tr><th scope="row">1 → 2</th><td class="num"><b>~75–80 PW (~1.5 py)</b></td><td class="num"><b>~45 PW</b></td><td class="num">~1 FTE/yr</td><td>Net ≥10% capacity uplift materializes</td><td class="num"><b>~15–25 eng</b></td><td>Platform build</td></tr>
+            <tr><th scope="row">2 → 3</th><td>+1–2 py, spread across teams</td><td>Low (mostly change management)</td><td>Skills and culture</td><td>Speed is a competitive weapon for you</td><td class="num">40+ eng</td><td>Human adaptation</td></tr>
+            <tr><th scope="row">3 → 4</th><td>Continuous, no end date</td><td>—</td><td>Rising, funded by returns</td><td>You are betting the company on AI leverage</td><td>Frontier</td><td>Governance and evals</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px">Why the higher rungs pull away</h3>
+        <div class="compound">
+          <div><span class="lv">L1</span><span class="what">Nothing compounds</span><span class="mult">A one-time individual speed-up, then flat.</span></div>
+          <div><span class="lv">L2</span><span class="what">Shared prompts, context, legible code, measurement</span><span class="mult">Every future AI interaction gets better.</span></div>
+          <div><span class="lv">L3</span><span class="what">Redesigned workflows and team skill</span><span class="mult">Agents' output, which depends on good specs, tests and legible code.</span></div>
+          <div><span class="lv">L4</span><span class="what">The system improves itself</span><span class="mult">Capacity, with compute, and the learning rate.</span></div>
+        </div>
+        <p class="note" style="max-width:780px">L1 gains are a step you take once. From L2 up, gains accumulate, so the gap between a compounding org and a flat one widens at an accelerating rate. "We already get 20–30%, that's enough" is a decision to let competitors compound past you.</p>
+      </div>
+    </div>
+  </div>
+</section><div class="wrap sources"><b>Sources</b><ol>
+      <li><a href="https://arxiv.org/abs/2302.06590" target="_blank" rel="noopener">Peng, Kalliamvakou, Cihon, Demirer. The Impact of AI on Developer Productivity: Evidence from GitHub Copilot (2023)</a></li>
+      <li><a href="https://arxiv.org/abs/2402.05636" target="_blank" rel="noopener">The Impact of AI Tool on Engineering at ANZ Bank (2024)</a></li>
+      <li><a href="https://arxiv.org/abs/2507.09089" target="_blank" rel="noopener">Becker, Rush, Barnes, Rein (METR). Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (2025)</a></li>
+      <li><a href="https://arxiv.org/abs/2501.13282" target="_blank" rel="noopener">Experience with GitHub Copilot for Developer Productivity at ZoomInfo (2025)</a></li>
+      <li><a href="https://survey.stackoverflow.co/2025/ai" target="_blank" rel="noopener">Stack Overflow Developer Survey 2025: AI</a></li>
+    </ol></div>
+<div class="wrap pager"><a class="btn ghost" href="assessment.html">Next: Assess your team →</a></div>
+</main>
+<footer><div class="wrap site-foot"><p>Costs, effort and break-even figures are the author's planning estimates for B2B SaaS teams. © 2026 Mahesh Gupta.</p><a href="https://pmaheshgupta.github.io/">More from Mahesh →</a></div></footer>
+<script src="site.js" defer></script>
+</body>
+</html>

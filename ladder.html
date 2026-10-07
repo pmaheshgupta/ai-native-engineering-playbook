@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI-Native Maturity Ladder: 5 Levels from Ad-hoc to AI-Native</title>
+<meta name="description" content="The five levels of AI-native engineering maturity on one screen: what changes at each rung, who does the work, the cost to climb, and the team size each level fits.">
+<meta name="author" content="Mahesh Gupta">
+<link rel="canonical" href="https://pmaheshgupta.github.io/ai-native-engineering-playbook/ladder.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI-Native Engineering Playbook">
+<meta property="og:title" content="AI-Native Maturity Ladder: 5 Levels from Ad-hoc to AI-Native">
+<meta property="og:description" content="The five levels of AI-native engineering maturity on one screen: what changes at each rung, who does the work, the cost to climb, and the team size each level fits.">
+<meta property="og:url" content="https://pmaheshgupta.github.io/ai-native-engineering-playbook/ladder.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<nav class="topnav" aria-label="Pages">
+  <div class="wrap">
+    <a class="brand" href="./">AI-Native Playbook</a>
+    <ul><li><a class="l" href="ladder.html" aria-current="page">Ladder</a></li><li><a class="l" href="evidence.html">Evidence</a></li><li><a class="l" href="assessment.html">Assessment</a></li><li><a class="l" href="playbook.html">Playbook</a></li><li><a class="l" href="first-90-days.html">First 90 days</a></li><li><a class="l" href="about.html">About</a></li></ul>
+  </div>
+</nav>
+<main id="main">
+<section id="ladder">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">The ladder on one screen</div>
+      <h2>Read it across, not down</h2>
+      <p class="lede">Three rows decide everything: <b>unit of change</b> (a habit, a process, or a reorg?), <b>returns shape</b> (does the gain compound or go flat?) and <b>team size fit</b> (do the fixed costs amortize?). They tell a CTO whether a jump is worth it faster than any prose. Select a level to highlight its column.</p>
+    </div>
+    <div class="tscroll">
+      <table class="matrix" id="matrix">
+        <thead><tr>
+          <th scope="col"></th>
+          <th scope="col" data-col="0"><button type="button">0 <span class="lvn">Ad-hoc</span></button></th>
+          <th scope="col" data-col="1"><button type="button">1 <span class="lvn">AI-Assisted</span></button></th>
+          <th scope="col" data-col="2"><button type="button">2 <span class="lvn">AI-Augmented</span></button></th>
+          <th scope="col" data-col="3"><button type="button">3 <span class="lvn">AI-First</span></button></th>
+          <th scope="col" data-col="4"><button type="button">4 <span class="lvn">AI-Native</span></button></th>
+        </tr></thead>
+        <tbody>
+          <tr><th scope="row">Means</th><td>Unmanaged dabbling</td><td>Individuals use AI for tasks</td><td>AI in shared workflows and the pipeline</td><td>AI is the default first attempt</td><td>Org designed around AI as a participant</td></tr>
+          <tr><th scope="row">Who works</th><td>Humans</td><td>Humans, with AI help</td><td>Team, AI in-process</td><td>AI drafts, humans steer</td><td>Agents operate, humans govern</td></tr>
+          <tr><th scope="row">Human's job</th><td>Everything</td><td>Write code, faster</td><td>Write and curate AI in-flow</td><td>Steer and verify</td><td>Orchestrate, architect, verify</td></tr>
+          <tr class="key"><th scope="row">Unit of change</th><td>—</td><td>Behavioral (a habit)</td><td>Structural (process)</td><td>Inversion (AI drives)</td><td>Org design (roles, ratios)</td></tr>
+          <tr class="key"><th scope="row">Returns shape</th><td>None</td><td>One-time step, then flat</td><td>Compounding begins</td><td>Compounding accelerates</td><td>Self-reinforcing moat</td></tr>
+          <tr><th scope="row">One-time cost <span class="mono" style="font-weight:400;color:var(--muted)">≈40 eng</span></th><td class="num">~0</td><td class="num">&lt;10 PW + licences</td><td class="num">~75–80 PW (~1.5 py)</td><td class="num">+1–2 py, diffuse</td><td>Continuous (operating model)</td></tr>
+          <tr class="key"><th scope="row">Fits team size</th><td>Any</td><td>Any</td><td class="num">~15–25+ engineers</td><td class="num">40+ with a mature base</td><td>Frontier, few</td></tr>
+          <tr><th scope="row">Share of orgs here</th><td>Shrinking</td><td>Most</td><td>Some</td><td>Rare</td><td>Very rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">PW = person-weeks, py = person-years. Costs are planning estimates. The fixed portion (~45 PW at L2) is the same whatever the team size.</p>
+    <div class="callout"><b>Actions shift from buying, to building, to redesigning, to governing.</b><span>L1 is procurement. L2 is a platform build. L3 is change management. L4 is governance. If an "AI-First plan" is a list of tools to buy, it is mislabeled.</span></div>
+  </div>
+</section>
+<div class="wrap pager"><a class="btn ghost" href="evidence.html">Next: Evidence and economics →</a></div>
+</main>
+<footer><div class="wrap site-foot"><p>Costs, effort and break-even figures are the author's planning estimates for B2B SaaS teams. © 2026 Mahesh Gupta.</p><a href="https://pmaheshgupta.github.io/">More from Mahesh →</a></div></footer>
+<script src="site.js" defer></script>
+</body>
+</html>

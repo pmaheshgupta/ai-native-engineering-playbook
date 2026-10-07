@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI-Native Engineering Execution Guide, Level by Level</title>
+<meta name="description" content="How to move an engineering org up the AI-native ladder: the moves, owners, SDLC stages and leadership actions for each level, plus the fintech guardrails that must grow ahead of autonomy.">
+<meta name="author" content="Mahesh Gupta">
+<link rel="canonical" href="https://pmaheshgupta.github.io/ai-native-engineering-playbook/playbook.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI-Native Engineering Playbook">
+<meta property="og:title" content="AI-Native Engineering Execution Guide, Level by Level">
+<meta property="og:description" content="How to move an engineering org up the AI-native ladder: the moves, owners, SDLC stages and leadership actions for each level, plus the fintech guardrails that must grow ahead of autonomy.">
+<meta property="og:url" content="https://pmaheshgupta.github.io/ai-native-engineering-playbook/playbook.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<nav class="topnav" aria-label="Pages">
+  <div class="wrap">
+    <a class="brand" href="./">AI-Native Playbook</a>
+    <ul><li><a class="l" href="ladder.html">Ladder</a></li><li><a class="l" href="evidence.html">Evidence</a></li><li><a class="l" href="assessment.html">Assessment</a></li><li><a class="l" href="playbook.html" aria-current="page">Playbook</a></li><li><a class="l" href="first-90-days.html">First 90 days</a></li><li><a class="l" href="about.html">About</a></li></ul>
+  </div>
+</nav>
+<main id="main">
+<section id="execute">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Execution guide</div>
+      <h2>From using Claude yourself to leading an AI-native org</h2>
+      <p class="lede">The ladder says which rung to aim for. This says what to do, who owns it and where in the SDLC it lands, from lean startups to enterprises. The gap it closes is turning a personal skill into an organizational capability.</p>
+    </div>
+    <h3 style="margin-bottom:14px">Eight concepts that bridge codegen to infrastructure</h3>
+    <div class="concepts">
+      <div class="concept"><b>Agent</b><p>Autocomplete finishes a line. An agent completes a task: it reads files, runs commands, edits, checks and iterates. A loop, not a suggestion.</p></div>
+      <div class="concept"><b>Headless, in the pipeline</b><p>Running Claude with no human at the keyboard, such as <span class="mono">claude -p</span> in CI or the GitHub Action on every PR. This is the line between L1 and L2.</p></div>
+      <div class="concept"><b>CLAUDE.md context</b><p>A markdown file committed to the repo that Claude reads automatically: conventions, architecture, "don'ts". Tribal knowledge, versioned.</p></div>
+      <div class="concept"><b>MCP connectors</b><p>The Model Context Protocol lets agents read and act on Jira, Drive, Slack and internal APIs instead of you pasting context in.</p></div>
+      <div class="concept"><b>Policy-as-code</b><p>Compliance rules as pipeline checks that block violations, such as "no direct writes to the ledger table". A rule can't be forgotten.</p></div>
+      <div class="concept"><b>Eval harness</b><p>A fixed task set you re-run whenever a prompt or agent changes. Without it, "we improved the prompt" is a feeling, not a fact.</p></div>
+      <div class="concept"><b>Autonomy policy</b><p>An enforced matrix of what agents may do unsupervised, with review, or never, by risk tier. Built before autonomy grows.</p></div>
+      <div class="concept"><b>Orchestration</b><p>One engineer directing several agents in parallel. This is where output starts to scale with agents rather than headcount.</p></div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Execution guide by level">
+      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">L1 · Assisted</button>
+      <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">L2 · Augmented</button>
+      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">L3 · First</button>
+      <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1">L4 · Native</button>
+    </div>
+
+    <div class="tpanel" role="tabpanel" id="p1" aria-labelledby="t1">
+      <p class="goal">Goal: every engineer using AI productively every day, on approved tools, without leaking data.</p>
+      <div class="pgrid">
+        <div class="box"><h4>The moves</h4><ul>
+          <li>Standardize on a sanctioned toolset and end shadow usage on personal accounts. Ungoverned tools are the real risk here.</li>
+          <li>Write the data-handling policy first: which code, data and secrets may go to which AI tools. In fintech this is the entry ticket.</li>
+          <li>Drop a starter CLAUDE.md into your top 5 repos so output is house-consistent from day one.</li>
+          <li>Open an #ai-engineering channel with a weekly 30-minute "what worked, what didn't". Let power users teach.</li>
+        </ul></div>
+        <div class="box"><h4>By division</h4><dl>
+          <dt>Platform / DevEx</dt><dd>Tool selection, licences, starter CLAUDE.md templates.</dd>
+          <dt>Security &amp; Compliance</dt><dd>Owns the data-handling policy and approved-tool list. A non-negotiable gate.</dd>
+          <dt>Eng teams</dt><dd>Adopt daily and contribute prompt patterns back.</dd>
+          <dt>Product</dt><dd>Use AI to draft and sharpen specs.</dd>
+        </dl></div>
+        <div class="box"><h4>By SDLC stage</h4><div class="sdlc"><span class="on">Plan</span><span class="on">Code</span><span class="on">Test</span><span>Review</span><span>Ship</span><span>Run</span></div><p style="font-size:.9375rem;color:var(--muted)">Touches stages lightly and individually. Nothing is wired into the pipeline yet, which is what makes it Level 1.</p></div>
+        <div class="box"><h4>Startup vs enterprise</h4><dl>
+          <dt>Startup (&lt;30 eng)</dt><dd>Done in a week: one policy doc, licences on a card, a channel.</dd>
+          <dt>Enterprise (150+)</dt><dd>Tool and data policy must clear InfoSec, Legal and procurement. Start now; that's the long pole. Sanctioning a tool also pulls shadow AI into the light.</dd>
+        </dl></div>
+      </div>
+      <div class="box you"><h4>What the leader personally does</h4><p>Sponsor the data policy with Security so it's a fast yes, not a six-month committee. Use Claude publicly so adoption is modeled from the top. Name one owner for AI enablement, even as a 10% role.</p></div>
+    </div>
+
+    <div class="tpanel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+      <p class="goal">Goal: AI woven into shared workflows and CI, with a verification spine and real measurement. The team's throughput moves, not just individuals'.</p>
+      <div class="pgrid">
+        <div class="box"><h4>The moves</h4><ul>
+          <li>AI review on 100% of PRs via the GitHub Action or <span class="mono">claude -p</span> in CI: bugs, spec conformance and security smells before a human looks.</li>
+          <li>Promote CLAUDE.md to maintained shared context per repo or domain, plus a library of team-standard tasks.</li>
+          <li>Test generation with every change, human-reviewed on risk paths.</li>
+          <li>Policy-as-code gates on money-movement, auth and PII paths. A violating change cannot merge.</li>
+          <li>Instrument the baseline: cycle time p50/p75, review-queue wait, change-failure rate, escape rate.</li>
+          <li>Route sensitive diffs to mandatory human review with CODEOWNERS.</li>
+        </ul></div>
+        <div class="box"><h4>By division</h4><dl>
+          <dt>Platform / DevEx</dt><dd>CI integration, shared-context infra, prompt library, dashboards. A dedicated platform owner becomes essential here.</dd>
+          <dt>Security &amp; Compliance</dt><dd>Policy-as-code rules and CODEOWNERS routing for regulated diffs.</dd>
+          <dt>Eng teams</dt><dd>Adopt the pipeline, review AI-generated tests, feed review misses back into prompts.</dd>
+          <dt>Data / Infra</dt><dd>The telemetry pipeline for the metrics.</dd>
+          <dt>Product</dt><dd>Structured, testable specs so acceptance criteria map to tests.</dd>
+        </dl></div>
+        <div class="box"><h4>By SDLC stage</h4><div class="sdlc"><span class="on">Plan</span><span class="on">Code</span><span class="on">Test</span><span class="on">Review</span><span class="on">Ship</span><span>Run</span></div><ul>
+          <li>Plan: AI-drafted, human-signed specs.</li><li>Code: scaffold-from-spec as a shared recipe.</li><li>Test: AI-generated tests and fuzzing as standard.</li><li>Review: AI first pass on every PR; humans shift to judgment.</li><li>Ship: policy-as-code gates in the pipeline.</li><li>Run is usually the next frontier, not needed to claim L2.</li></ul></div>
+        <div class="box"><h4>Startup vs enterprise</h4><dl>
+          <dt>Startup</dt><dd>A 2–3 person platform squad for about two quarters. Favor PR review, CLAUDE.md and policy-as-code over completeness.</dd>
+          <dt>Enterprise</dt><dd>The hard part is standardizing across divisions with their own pipelines. Run it as an internal platform product with 2–3 pilot divisions, prove the metrics, then template it.</dd>
+        </dl></div>
+      </div>
+      <div class="box you"><h4>What the leader personally does</h4><p>Fund the platform squad and protect it from feature work. Set the rule that separates Augmented from chaos: <b>change-failure rate stays flat while cycle time drops.</b> Take the measured before-and-after uplift to peers and the board. Below ~15 engineers this level often won't pay back; staying at L1 is then the disciplined choice.</p></div>
+    </div>
+
+    <div class="tpanel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+      <p class="goal">Goal: most work starts with AI, agents run multi-step tasks with checkpoints, and workflows are genuinely redesigned around AI.</p>
+      <div class="pgrid">
+        <div class="box"><h4>The moves</h4><ul>
+          <li>Redesign one flagship workflow AI-first. The test: a step disappears or fundamentally changes, such as review moving from style nits to spec conformance.</li>
+          <li>Agents on multi-step tasks (ticket → branch → code → tests → PR) with defined human checkpoints, using MCP to read Jira and design docs.</li>
+          <li>Machine-actionable specs an agent can execute without human translation.</li>
+          <li>Update the career ladder to reward AI-leveraged outcomes and verification quality, not hand-written lines of code.</li>
+        </ul></div>
+        <div class="box"><h4>By division</h4><dl>
+          <dt>Platform / DevEx</dt><dd>Agent workflows, MCP connectors, orchestration patterns.</dd>
+          <dt>Eng teams / EMs</dt><dd>The workflow redesign itself, and retraining review habits from nits to architecture.</dd>
+          <dt>Security &amp; Compliance</dt><dd>Deeper guardrails to permit more autonomy safely; regulated gates stay human-owned.</dd>
+          <dt>Product</dt><dd>Owns machine-actionable specs as the upstream contract.</dd>
+          <dt>People + leadership</dt><dd>The career-ladder and performance-model change.</dd>
+        </dl></div>
+        <div class="box"><h4>By SDLC stage</h4><div class="sdlc"><span class="on">Plan</span><span class="on">Code</span><span class="on">Test</span><span class="on">Review</span><span class="on">Ship</span><span>Run</span></div><p style="font-size:.9375rem;color:var(--muted)">AI drafts across Plan, Code, Test and Review while humans steer. Ship and Run tighten their guardrails to handle the faster flow.</p></div>
+        <div class="box"><h4>Startup vs enterprise</h4><dl>
+          <dt>Startup</dt><dd>No legacy process to unwind, so workflows can be redesigned in weeks. The risk is skipping the L2 verification spine.</dd>
+          <dt>Enterprise</dt><dd>Change management, not procurement. Governance, audit expectations and division politics are the real work. Expect quarters, not weeks.</dd>
+        </dl></div>
+      </div>
+      <div class="box you"><h4>What the leader personally does</h4><p>This level lives or dies on leadership. Own the operating-model shift and the career-ladder change; no platform team can do that for you. Say it repeatedly: AI-first means humans move up to judgment, not out.</p></div>
+    </div>
+
+    <div class="tpanel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+      <p class="goal">Goal: agents own workflows end to end within enforced guardrails, humans orchestrate and verify, and output scales with agent capacity.</p>
+      <div class="pgrid">
+        <div class="box"><h4>The moves</h4><ul>
+          <li>An eval harness that measures AI output quality over time. AI workflows are now managed as products.</li>
+          <li>A published, enforced autonomy policy by risk tier: unsupervised, review-required, human-only.</li>
+          <li>Scoped, least-privilege agent credentials. Never shared human accounts; every action logged and attributable.</li>
+          <li>Redesign the org: fewer, more senior engineers orchestrating agents, QA reframed as verification design, hiring plans that read "hire 2 plus agent capacity".</li>
+        </ul></div>
+        <div class="box"><h4>By division</h4><dl>
+          <dt>Platform / DevEx</dt><dd>Evals, orchestration platform, autonomy enforcement, agent identity and access.</dd>
+          <dt>Security &amp; Compliance</dt><dd>Agent IAM, continuous audit trails, enforced regulated gates.</dd>
+          <dt>Data / Infra</dt><dd>Observability and the compute agents run on.</dd>
+          <dt>Eng leadership</dt><dd>Roles, ratios and the hiring model.</dd>
+          <dt>Finance / Ops</dt><dd>Capacity-based planning instead of headcount-based.</dd>
+        </dl></div>
+        <div class="box"><h4>By SDLC stage</h4><div class="sdlc"><span class="on">Plan</span><span class="on">Code</span><span class="on">Test</span><span class="on">Review</span><span class="on">Ship</span><span class="on">Run</span></div><p style="font-size:.9375rem;color:var(--muted)">Run is now included: AI detects and triages incidents, drafts RCAs and remediates known issues within guardrails. Humans keep incident command.</p></div>
+        <div class="box"><h4>Startup vs enterprise</h4><dl>
+          <dt>Startup</dt><dd>A frontier you approach. A small elite team on greenfield systems may genuinely operate here.</dd>
+          <dt>Enterprise</dt><dd>A multi-year program. For most, moving decisively through L3 is the honest near-term ambition.</dd>
+        </dl></div>
+      </div>
+      <div class="box you"><h4>What the leader personally does</h4><p>Treat it as company strategy, not an engineering initiative. It changes cost structure, hiring and competitive posture, so it belongs in board conversations. The job becomes governing the system: evals, autonomy limits, and where humans must stay.</p></div>
+    </div>
+  </div>
+</section>
+<section id="spine">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Non-negotiable at every level</div>
+      <h2>The fintech spine grows ahead of autonomy</h2>
+      <p class="lede">These hold at every rung and must be built before agents are allowed to do more, not after.</p>
+    </div>
+    <div class="spine">
+      <div class="box"><b>A named human owner at every regulated gate</b><p>Money movement, auth, PII, access and model changes. Codified, tool-enforced and audit-survivable.</p></div>
+      <div class="box"><b>Full auditability</b><p>Every AI-influenced change is traceable: what AI made, who reviewed it, against which spec.</p></div>
+      <div class="box"><b>Least-privilege agent credentials</b><p>Agents get their own scoped identities, never shared human service accounts.</p></div>
+      <div class="box"><b>Brakes before engine</b><p>Automated rollback and progressive delivery come before any increase in autonomy.</p></div>
+    </div>
+    <div class="callout"><b>For the board: compliance becomes a growth lever.</b><span>Done right, the spine lowers audit cost, shortens enterprise sales (security review is the usual deal bottleneck) and forms a moat a smaller rival can't quickly copy.</span></div>
+  </div>
+</section>
+<div class="wrap pager"><a class="btn ghost" href="first-90-days.html">Next: Your first 90 days →</a></div>
+</main>
+<footer><div class="wrap site-foot"><p>Costs, effort and break-even figures are the author's planning estimates for B2B SaaS teams. © 2026 Mahesh Gupta.</p><a href="https://pmaheshgupta.github.io/">More from Mahesh →</a></div></footer>
+<script src="site.js" defer></script>
+</body>
+</html>
