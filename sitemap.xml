@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/</loc></url>
+  <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/sdlc.html</loc></url>
   <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/ladder.html</loc></url>
   <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/evidence.html</loc></url>
   <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/assessment.html</loc></url>
   <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/playbook.html</loc></url>
   <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/first-90-days.html</loc></url>
   <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/about.html</loc></url>
+  <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/platform/</loc></url>
+  <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/platform/personas.html</loc></url>
+  <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/platform/processes.html</loc></url>
+  <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/platform/configurability.html</loc></url>
+  <url><loc>https://pmaheshgupta.github.io/ai-native-engineering-playbook/platform/pitfalls.html</loc></url>
 </urlset>
